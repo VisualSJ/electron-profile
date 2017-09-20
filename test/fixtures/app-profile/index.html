@@ -48,8 +48,8 @@
 
     Promise.resolve()
       .then(() => {
-        console.log(gUser.data.name);
-        displayResult('.load', gUser && gUser.data && gUser.data.name === 'VisualSJ');
+        console.log(gUser.get('name'));
+        displayResult('.load', gUser && gUser.get('name') === 'VisualSJ');
       })
       .then(() => {
         let timer = setTimeout(() => {
@@ -58,7 +58,6 @@
         }, 500);
         let handler = function () {
           clearTimeout(timer);
-          console.log(123);
           displayResult('.sync', true);
           gUser.removeListener('changed', handler);
         };

@@ -20,6 +20,6 @@ app.on('ready', function () {
 
 ipcPlus.on('modify-profile', (event, url, key, value) => {
   let item = profile.load(url);
-  item.data[key] = value;
+  item.set('key', value);
   item.save();
 });
